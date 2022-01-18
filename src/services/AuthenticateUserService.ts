@@ -10,6 +10,7 @@ interface IUserResponse {
     login: string;
     id: number;
     name: string;
+    avatar_url: string;
 }
 
 class AuthenticateUserService {
@@ -36,7 +37,7 @@ class AuthenticateUserService {
             },
         });
 
-        const { login, id, name } = response.data;
+        const { login, id, name, avatar_url } = response.data;
 
         let user = await prismaClient.user.findFirst({
             where: {
@@ -50,6 +51,7 @@ class AuthenticateUserService {
                     github_id: id,
                     name,
                     login,
+                    avatar_url,
                 }
             })
             console.log("foi inserido")
@@ -60,7 +62,8 @@ class AuthenticateUserService {
             user: {
                 name: user.name,
                 login: user.login,
-                id: user.id
+                id: user.id,
+                avatar_url: user.avatar_url
             }
         },
         process.env.JWT_SECRET,

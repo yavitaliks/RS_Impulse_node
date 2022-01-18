@@ -24,6 +24,7 @@ model User {
   github_id Int
   name      String
   login     String
+  avatar_url String?
 
   @@map("users")
   messages Messagem[]

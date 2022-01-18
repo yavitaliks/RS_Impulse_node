@@ -20,6 +20,7 @@ class CreateMessageService {
             user:{
                 name: message.user.name,
                 login: message.user.login,
+                avatar_url: message.user.avatar_url
             }
         }
 
