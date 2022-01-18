@@ -11,7 +11,7 @@ router.post("/authenticate", new AuthenticateUserController().handle);
 
 router.post("/messages", ensureAuthenticatedr, new CreateMessageController().handle);
 
-router.get("/lastmessages", ensureAuthenticatedr, new GetLast3MessageController().handle);
+router.get("/lastmessages", new GetLast3MessageController().handle);
 
 router.get("/profele", ensureAuthenticatedr, new ProfileUserController().handle);
 

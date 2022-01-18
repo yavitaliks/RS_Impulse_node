@@ -4,7 +4,7 @@ class GetLast3MessageService {
     
     async execute(){
         const messages = await prismaClient.messagem.findMany({
-            take: 3,
+            take: 10,
             orderBy: {
                 create_at: "desc",
             },
